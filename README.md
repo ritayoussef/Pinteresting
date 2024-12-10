@@ -154,11 +154,15 @@ erDiagram
 
 ## 📲 Login View
 
+![Login View](images/login-view.png)
+
 A simple screen for users to log in with their credentials. Includes a link to the registration page for new users.
 
 ---
 
 ## 📋 List View
+
+![List View](images/list-view.png)
 
 Displays all tasks for the logged-in user. Users can:
 
@@ -170,6 +174,8 @@ Displays all tasks for the logged-in user. Users can:
 
 ## 📂 Show View
 
+![Show View](images/show-view.png)
+
 Details view for a specific task. Users can:
 
 - View the **due date** with a countdown.
@@ -179,6 +185,8 @@ Details view for a specific task. Users can:
 ---
 
 ## 👤 Profile View
+
+![Profile View](images/profile-view.png)
 
 The user profile page includes:
 
