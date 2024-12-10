@@ -1,0 +1,38 @@
+{{> Header }}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b97187;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }   
+
+        comment {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        comment div {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        comment p {
+            margin: 0;
+        }
+    </style>
+
+<body>
+    <form class="add-comment-form">
+        <textarea name="comment" placeholder="Write your comment here..."></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+{{> Footer }}

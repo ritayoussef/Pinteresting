@@ -1,0 +1,128 @@
+{{> Header }}
+
+<style>
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        background-color: #2c3e50; /* Midnight color */
+        color: #ecf0f1; /* Light color for contrast */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    section {
+        padding: 20px;
+        text-align: center;
+        flex: 1;
+    }
+    h1 {
+        color: white;
+    }
+  
+    blockquote {
+        font-style: italic;
+        color: #ecf0f1;
+        margin: 20px auto;
+        max-width: 600px;
+        text-align: center; /* Center the blockquote */
+    }
+    .slideshow-section {
+        position: relative;
+        margin-top: 50px;
+        margin-bottom: 20px; /* Additional space at the bottom */
+    }
+    .slideshow-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1000px;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+    }
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    .slide {
+        min-width: 33.33%;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+    .slide img {
+        width: 100%;
+        height: 300px; /* Fixed height for all images */
+        object-fit: cover; /* Ensure images are cropped to fit */
+        border-radius: 10px;
+    }
+    .explore-link {
+        text-decoration: none;
+        color: white;
+        font-size: 2em;
+        transition: color 0.3s;
+        position: absolute;
+        top: -30px; /* Adjusted position to be on top */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .explore-link:hover {
+        color:#34495e;
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #34495e;
+        color: white;
+        width: 100%;
+    }
+</style>
+
+<section>
+    {{> PostsView }}
+</section>
+
+<section class="slideshow-section">
+    <a href="{{ path 'posts' }}" class="explore-link">Explore</a>
+    <div class="slideshow-container">
+        <div class="slides">
+            <div class="slide"><img src="https://i.pinimg.com/236x/79/e2/73/79e2731d19545acae8bf88055eea8158.jpg" alt="Slideshow Image"></div>
+            <div class="slide"><img src="https://favim.com/pd/s11/orig/7/768/7685/76859/random-beautiful-sunset-Favim.com-7685939.jpg" alt="Slideshow Image"></div>
+            <div class="slide"><img src="https://i.pinimg.com/originals/98/19/5b/98195bd2940eed6266d12396207323b8.jpg" alt="Slideshow Image"></div>
+            <div class="slide"><img src="https://favim.com/pd/p/orig/2018/12/07/shadow-random-aesthetic-Favim.com-6671811.png" alt="Slideshow Image"></div>
+            <div class="slide"><img src="https://i.pinimg.com/originals/a3/85/e7/a385e7bba6a9f787ab6836ebd9dd272f.jpg" alt="Slideshow Image"></div>
+            <div class="slide"><img src="https://i.pinimg.com/originals/8b/ba/4d/8bba4dfd2278928a9cf5153256985216.jpg" alt="Slideshow Image"></div>
+            <div class="slide"><img src="https://favim.com/pd/p/orig/2018/12/07/shadow-random-aesthetic-Favim.com-6671811.png" alt="Slideshow Image"></div>
+            <div class="slide"><img src="https://favim.com/pd/s11/orig/7/768/7685/76859/random-beautiful-sunset-Favim.com-7685939.jpg" alt="Slideshow Image"></div>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <blockquote>"Make Everything Interesting" - Pinteresting</blockquote>
+</section>
+
+<footer>
+    {{> Footer }}
+</footer>
+
+<script>
+    let slideIndex = 0;
+    const slides = document.querySelector('.slides');
+    const slideCount = slides.children.length;
+    const visibleSlides = 3;
+    const totalSlides = Math.ceil(slideCount / visibleSlides);
+
+    function showSlides() {
+        slideIndex++;
+        if (slideIndex >= totalSlides) {
+            slideIndex = 0;
+        }
+        const transformValue = -slideIndex * 100 / visibleSlides;
+        slides.style.transform = `translateX(${transformValue}%)`;
+        setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+
+    showSlides();
+</script>

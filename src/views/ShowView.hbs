@@ -1,0 +1,112 @@
+{{> Header }}
+
+<div class="main-container">
+    <section class="post">
+        <div class="post-info">
+            <userAccount>
+                <img src="{{user.profile_picture}}" alt="picture">
+                <h2>{{user.name}}</h2>
+            </userAccount>
+            <postDetails>
+                <h1>{{post.title}}</h1>
+                <img src="{{post.picture}}" alt="post" width="1000px">
+                <p>Likes: {{likes}}</p>
+            </postDetails>
+        </div>
+        <div class="comments-section">
+            <h2>Comments</h2>
+            <ul class="comment-list">
+                {{#each comments}}
+                <li class="comment">
+                    <div class="comment-info">
+                        <img src="{{user.profile_picture}}" alt="commenter picture">
+                        <h3>{{user.name}}</h3>
+                    </div>
+                    <p>{{content}}</p>
+                    <time datetime="{{createdAt}}">Commented on {{createdAt}}</time>
+                </li>
+                {{/each}}
+            </ul>
+            <a href="{{ path 'comment' }}">Comment</a>
+            <!-- Form for adding a comment -->
+        </div>
+    </section>
+</div>
+
+{{> Footer }}
+
+<style>
+/* Your existing CSS styles */
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.post-info {
+    flex: 1;
+}
+
+.comments-section {
+    flex: 1;
+}
+
+.comments-section h2 {
+    margin-bottom: 10px;
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment {
+    margin-bottom: 20px;
+}
+
+.comment-info {
+    display: flex;
+    align-items: center;
+}
+
+.comment-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-info h3 {
+    margin: 0;
+}
+
+.add-comment-form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.add-comment-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-comment-form button:hover {
+    background-color: #45a049;
+}
+
+</style>

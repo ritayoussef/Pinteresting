@@ -1,0 +1,150 @@
+
+
+
+<div class="posts">
+    <label for="tag">Tag</label>
+    <select id="tag" name="tagId" >
+    <option value="" disabled selected>Select a tag</option>
+    {{#each tags}}
+        <option value="{{id}}">{{name}}</option>
+    {{/each}}
+    </select>
+    {{#each posts}}
+    <a href="/posts/{{id}}" class="post-link">
+        <div class="post">
+            <h2>{{title}}</h2>
+            {{#if picture}}
+            <img src="{{picture}}" alt="Post image">
+            {{/if}}
+            <p class="caption">{{caption}}</p>
+            <time datetime="{{createdAt}}">Posted on {{createdAt}}</time>
+            {{#if editedAt}}
+            <time datetime="{{editedAt}}">(Edited on {{editedAt}})</time>
+            {{/if}}
+             <a href="/posts/{{id}}/edit" >  
+                <button id="editButton">Edit Post</button>
+            </a>
+        </div>
+    </a>
+    {{/each}}
+</div>
+<style>
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #2c3e50;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#editButton
+{
+       background-color: #2c3e50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+}
+.posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.post-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.post {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+}
+
+.post h2 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5em;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.post .user {
+    font-size: 0.9em;
+    color: #7096d1;
+    margin: 10px 0;
+}
+
+.post .caption {
+    font-size: 1em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.post time {
+    font-size: 0.9em;
+    color: #ced9e7;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.actions .like-btn, .actions .favorite-btn {
+    flex: 1;
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.actions .like-btn {
+    background-color: #ff7675;
+    color: white;
+}
+
+.actions .favorite-btn {
+    background-color: #fdcb6e;
+    color: white;
+}
+
+.actions .like-btn:hover {
+    background-color: #e74c3c;
+}
+
+.actions .favorite-btn:hover {
+    background-color: #e67e22;
+}
+</style>

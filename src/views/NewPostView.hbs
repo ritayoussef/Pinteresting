@@ -1,0 +1,92 @@
+
+<div class="form-container">
+    <h2>Create a New Post</h2>
+    <form action="/posts" method="POST">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" required>
+
+
+        <label for="caption">Caption</label>
+        <textarea id="caption" name="caption" rows="4" required></textarea>
+
+        <label for="picture">Picture URL</label>
+        <input type="url" id="picture" name="picture">
+
+
+        <label for="tag">Tag</label>
+        <select id="tag" name="tagId" required>
+            <option value="" disabled selected>Select a tag</option>
+            {{#each tags}}
+                <option value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+
+        <button type="submit">Create Post</button>
+    </form>
+</div>
+
+
+<style>
+    body{
+        background-color: #2c3e50;
+    }
+    .form-container {
+
+        font-family: Arial, sans-serif;
+        background-color: #f2f0de;
+        color:#2c3e50; /* midnight blue */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 50%;
+        max-width: 500px; /* Adjust the maximum width as needed */
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .form-container h2 {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .form-container form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-container label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-container input[type="text"],
+    .form-container textarea,
+    .form-container input[type="url"] {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .form-container button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        border-radius: 5px;
+        background-color: #34495e;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .form-container button[type="submit"]:hover {
+        background-color: white;
+        color: #34495e;
+    }
+     
+</style>

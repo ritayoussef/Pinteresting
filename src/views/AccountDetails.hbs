@@ -1,0 +1,56 @@
+{{> Header }}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b97187;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }  
+
+        profile {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        profilePicture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        profilePicture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        name {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+    </style>
+
+<body>
+    <profile>
+        <profilePicture>
+            <img src="{{props.profile_picture}}" alt="Profile Picture">
+        </profilePicture>
+        <name>
+            <h1>{{props.name}}</h1>
+        </name>
+    </profile>
+</body>
+
+{{> Footer }}
